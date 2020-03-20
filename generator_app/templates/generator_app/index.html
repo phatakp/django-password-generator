@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Random Password Generator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <div class="container text-center">
+            <h3>Random Password Generator</h3>
+            <a class="btn btn-primary" href="{% url 'index' %}">HOME</a>
+            <a class="btn btn-primary" href="{% url 'about' %}">ABOUT</a>
+            <p></p>
+            <p></p>
+            <form class="form-group" action="{% url 'result' %}">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="num-chars">Minimum Characters:</label>
+                    </div>
+                    <select class="custom-select" id="num-chars" name="min-chars">
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                </div>
+                <p></p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <span>UpperCase
+                          <input type="checkbox" name="ucase">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <span>Numbers
+                          <input type="checkbox" name="nums">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <span>Special Chars
+                          <input type="checkbox" name="special">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p></p>
+
+                <p></p>
+                <input type="submit" name="" value="Generate" class="btn btn-primary">
+            </form>
+        </div>
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
